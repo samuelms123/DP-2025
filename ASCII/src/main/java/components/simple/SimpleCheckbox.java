@@ -11,7 +11,8 @@ public class SimpleCheckbox extends Checkbox {
 
     @Override
     public void display() {
-
+        System.out.println();
+        System.out.println("| " + text + " |");
     }
 
     @Override

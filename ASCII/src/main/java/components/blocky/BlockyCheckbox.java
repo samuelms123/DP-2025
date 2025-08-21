@@ -9,7 +9,8 @@ public class BlockyCheckbox extends Checkbox {
     }
     @Override
     public void display() {
-        System.out.println(text);
+        System.out.println();
+        System.out.println("[[ " + text + " ]]");
     }
 
     @Override

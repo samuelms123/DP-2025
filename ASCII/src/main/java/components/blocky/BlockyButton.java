@@ -3,7 +3,7 @@ package components.blocky;
 import components.Button;
 
 public class BlockyButton extends Button {
-    String text = "Click Me";
+    String text;
 
     public BlockyButton(String text) {
         this.text = text;
@@ -14,7 +14,9 @@ public class BlockyButton extends Button {
             System.out.println();
             for (int j = 0; j < 1; j++) {
                 if (i == 0 || i == 2) {
-                    System.out.print("################");
+                    for (int k = 0; k < text.length() + 4; k++) {
+                        System.out.print("#");
+                    }
                 } else {
                     System.out.print("# " + text + " #");
                 }

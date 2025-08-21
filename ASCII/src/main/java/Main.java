@@ -29,9 +29,9 @@ public class Main {
                 break;
 
         }
-        Button btn = factory.createButton("Button");
-        TextField tf = factory.createTextField("TextField");
-        Checkbox cb = factory.createCheckBox("Checkbox");
+        Button btn = factory.createButton("Tämä on nappi jee");
+        TextField tf = factory.createTextField("Tämä on tekstikenttä, jossa on paljon tekstiä.");
+        Checkbox cb = factory.createCheckBox("XX");
 
         btn.display();
         tf.display();
