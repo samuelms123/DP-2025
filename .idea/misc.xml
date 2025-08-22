@@ -6,6 +6,7 @@
       <list>
         <option value="$PROJECT_DIR$/RPG_map_generator/pom.xml" />
         <option value="$PROJECT_DIR$/ASCII/pom.xml" />
+        <option value="$PROJECT_DIR$/Composite/pom.xml" />
       </list>
     </option>
   </component>
