@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="App.Controller.FeedbackController">
+   <children>
+      <Text layoutX="24.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Send us feedback!">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Text>
+      <ChoiceBox fx:id="type" layoutX="24.0" layoutY="99.0" prefWidth="150.0" />
+      <Text layoutX="24.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter feedback type" wrappingWidth="150.0" />
+      <TextArea id="message" fx:id="message" layoutX="25.0" layoutY="186.0" prefHeight="200.0" prefWidth="496.0" promptText="Your feedback" />
+      <Text layoutX="24.0" layoutY="149.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter email" wrappingWidth="150.0" />
+      <TextField id="email" fx:id="email" layoutX="24.0" layoutY="153.0" promptText="email" />
+      <Button id="button" fx:id="button" layoutX="534.0" layoutY="186.0" mnemonicParsing="false" onAction="#handleSubmit" prefHeight="200.0" prefWidth="52.0" text="Send" />
+      <Text id="result" fx:id="result" layoutX="215.0" layoutY="170.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Thank you for your feedback!" wrappingWidth="200.86669921875" />
+   </children>
+</Pane>
