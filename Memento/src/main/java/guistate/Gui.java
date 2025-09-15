@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -19,7 +20,10 @@ public class Gui extends Application {
     private ColorBox colorBox3;
     private CheckBox checkBox;
 
+    private ListView listView;
+
     public void start(Stage stage) {
+        Stage historyViewStage = new Stage();
 
         controller = new Controller(this);
 
@@ -70,6 +74,18 @@ public class Gui extends Application {
                 controller.redo();
             }
         });
+        listView = new ListView(null);
+        VBox viewBox = new VBox(listView);
+        Scene scene2 = new Scene(viewBox);
+
+        listView.setOnMouseClicked(event -> {
+            Object selected = listView.getSelectionModel().getSelectedItem();
+            controller.moveToMemento(selected);
+        });
+
+        historyViewStage.setScene(scene2);
+        historyViewStage.setTitle("History");
+        historyViewStage.show();
 
         stage.setScene(scene);
         stage.setTitle("Memento Pattern Example");
@@ -82,5 +98,9 @@ public class Gui extends Application {
         colorBox2.setColor(controller.getOption(2));
         colorBox3.setColor(controller.getOption(3));
         checkBox.setSelected(controller.getIsSelected());
+    }
+
+    public void updateHistory() {
+        listView.setItems(controller.getUndoHistory());
     }
 }

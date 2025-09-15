@@ -1,5 +1,8 @@
 package guistate;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,6 +28,14 @@ public class Controller {
         return model.getOption(optionNumber);
     }
 
+    public ObservableList<IMemento> getUndoHistory() {
+        return FXCollections.observableArrayList(undoHistory);
+    }
+
+    public ObservableList<IMemento> getRedoHistory() {
+        return FXCollections.observableArrayList(redoHistory);
+    }
+
     public void setIsSelected(boolean isSelected) {
         saveToHistory();
         model.setIsSelected(isSelected);
@@ -44,6 +55,7 @@ public class Controller {
             IMemento previousState = undoHistory.remove(undoHistory.size() - 1);
             model.restoreState(previousState);
             gui.updateGui();
+            gui.updateHistory();
         }
     }
 
@@ -57,12 +69,20 @@ public class Controller {
             IMemento previousState = redoHistory.remove(redoHistory.size() - 1);
             model.restoreState(previousState);
             gui.updateGui();
+            gui.updateHistory();
         }
+    }
+
+    public void moveToMemento(Object memento) {
+        model.restoreState((IMemento) memento);
+        gui.updateGui();
+        System.out.println("State restored");
     }
 
     private void saveToHistory() {
         IMemento currentState = model.createMemento();
         undoHistory.add(currentState);
         redoHistory.clear();
+        gui.updateHistory();
     }
 }
