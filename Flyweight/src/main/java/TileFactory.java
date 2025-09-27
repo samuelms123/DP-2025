@@ -23,7 +23,7 @@ public class TileFactory {
     }
 
     private static String getResourcePath(String filename) {
-        return TileFactory.class.getResource("/" + filename).toExternalForm();
+        return TileFactory.class.getResource(filename).toExternalForm();
     }
 
 }
