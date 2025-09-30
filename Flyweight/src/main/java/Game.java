@@ -12,7 +12,7 @@ public class Game extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        WildernessMap wildu = new WildernessMap(MAP_WIDTH, MAP_HEIGHT, TILE_SIZE);
+        Map wildu = new WildernessMap(MAP_WIDTH, MAP_HEIGHT, TILE_SIZE);
 
         Canvas canvas = new Canvas(MAP_WIDTH * TILE_SIZE, MAP_HEIGHT * TILE_SIZE);
         GraphicsContext gc = canvas.getGraphicsContext2D();

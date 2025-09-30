@@ -9,7 +9,7 @@ public class WildernessMap extends Map {
     public TileImage createTile() {
 
         Random rand = new Random();
-        int tileNumber = 1 + rand.nextInt((3 - 1) + 1);
+        int tileNumber = 1 + rand.nextInt(3);
 
         switch (tileNumber) {
             case 1: return TileFactory.getImage(TileType.WATER);
