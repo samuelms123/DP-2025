@@ -16,13 +16,7 @@ public class FibonacciSequence implements Sequence {
 
     @Override
     public Iterator<Integer> iterator() {
-        return new FibonacciIterator(this, limit);
+        return new FibonacciIterator(limit);
     }
 
-    public int nextNumber() {
-        int next = previous + current;
-        previous = current;
-        current = next;
-        return previous;
-    }
 }

@@ -1,11 +1,14 @@
 public class FibonacciIterator implements java.util.Iterator<Integer> {
 
-    private FibonacciSequence sequence;
     private int limit;
     private int count = 0;
+    private int current = 1;
+    private int previous = 0;
 
-    public FibonacciIterator(FibonacciSequence sequence, int limit) {
-        this.sequence = sequence;
+    // Fibonacci state implemented in the Iterator itself
+    // This ensures that each iterator created from the same sequence is independent
+
+    public FibonacciIterator(int limit) {
         this.limit = limit;
     }
 
@@ -18,6 +21,10 @@ public class FibonacciIterator implements java.util.Iterator<Integer> {
     @Override
     public Integer next() {
         count++;
-        return sequence.nextNumber();
+
+        int next = previous + current;
+        previous = current;
+        current = next;
+        return previous;
     }
 }
